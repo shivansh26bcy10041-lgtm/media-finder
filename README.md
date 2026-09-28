@@ -1,61 +1,171 @@
 # Media Finder
 
-A cross-platform desktop application designed to discover where digital books, movies, shows, and music are accessible. The application aggregates search queries across curated free/public-domain repositories and commercial subscription platforms while using a rule-based heuristic engine to estimate public domain availability.
+A cross-platform desktop application to find out where digital books, movies, shows and music is available. Queries get distributed across relevant free/public-domain and commercial subscription repositories, while a rule-based heuristic engine estimates public domain availability.
 
 ---
 
 ## Overview
 
-Finding digital media often requires jumping between disparate websites and streaming platforms. Media Finder streamlines this discovery process with a centralized graphical interface built in Python and Tkinter.
+A search for digital media often involves muddling through countless websites and different streaming platforms. Media Finder is a graphical utility written in python and tkinter, which aggregates search queries to major open-access repositories and commercial providers while estimating the likelihood of public domain availability using a rule-based heuristic engine.
 
-When a query is entered and a media category is selected, the application:
-1. Dynamically constructs direct search links for major open-access repositories and commercial providers.
-2. Evaluates the search terms through a heuristic analyzer to predict whether the content is likely in the public domain or behind a paywall.
-3. Maintains a local, persistent history of recent searches for quick re-execution.
+When a search is made and a media category is picked, Media Finder:
+
+1. Constructs direct search links for each major open-access repository and commercial provider
+
+2. Analyzes the query using a heuristic analyzer to determine the likelihood of being in the public domain
+
+3. Keeps a persistent history of recent searches for easy re-use
 
 ---
 
 ## Features
 
-- **Multi-Category Cross-Media Search:**
-  - **Books:** Project Gutenberg, Internet Archive, Open Library, Standard Ebooks, LibriVox, Amazon Kindle, Audible, Google Play Books, Kobo.
-  - **Movies:** Tubi, YouTube, Internet Archive, JustWatch, Pluto TV, Netflix, Prime Video, Disney+, Apple TV, Google TV.
-  - **TV Shows:** Tubi, YouTube, JustWatch, Pluto TV, Netflix, Prime Video, Max, Hulu.
-  - **Music:** SoundCloud, Bandcamp, Internet Archive, Jamendo, Free Music Archive, Spotify, Apple Music, YouTube Music, Tidal.
+### Multi-Category Cross-Media Search
 
-- **Intelligent Availability Heuristic Engine:**
-  - Regular expression year detection (identifies US public domain cutoff years prior to 1928 and modern post-2018 titles).
-  - Domain-specific pattern matching for classical authors (Shakespeare, Dickens, Austen, Twain, Poe, Doyle, Tolstoy, Homer) and composers (Mozart, Beethoven, Bach, Chopin, Vivaldi, Tchaikovsky).
-  - Contextual keyword recognition for audiobooks, archival content, live recordings, remixes, and bootlegs.
-  - Dual visual progress meters illustrating confidence scores for free vs. paid likelihood.
+Book search includes:
 
-- **Dual-Pane Source Organization:** Side-by-side separation between free/public-domain sources and paid/subscription services.
+- Project Gutenberg
 
-- **One-Click Native Link Dispatch:** Safely encodes query parameters and opens direct search result pages in the user's default web browser.
+- Internet Archive
 
-- **Persistent Search History:** Automatically caches up to 25 unique recent search queries in `search_history.json` using an MRU (Most Recently Used) reordering mechanism.
+- Open Library
 
-- **Modern Dark UI:** Custom-styled Tkinter/ttk interface with accessible contrast and clean typography.
+- Standard Ebooks
+
+- LibriVox
+
+- Amazon Kindle
+
+- Audible
+
+- Google Play Books
+
+- Kobo
+
+Movie search includes:
+
+- Tubi
+
+- YouTube
+
+- Internet Archive
+
+- JustWatch
+
+- Pluto TV
+
+- Netflix
+
+- Prime Video
+
+- Disney+
+
+- Apple TV
+
+- Google TV
+
+TV Show search includes:
+
+- Tubi
+
+- YouTube
+
+- JustWatch
+
+- Pluto TV
+
+- Netflix
+
+- Prime Video
+
+- Max
+
+- Hulu
+
+Music search includes:
+
+- SoundCloud
+
+- Bandcamp
+
+- Internet Archive
+
+- Jamendo
+
+- Free Music Archive
+
+- Spotify
+
+- Apple Music
+
+- YouTube Music
+
+- Tidal
+
+### Intelligent Availability Heuristic Engine
+
+- Uses regex year detection for public domain cutoff years (US copyright law, pre-1928) and modern (post-2018) works
+
+- Heuristics include domain specific patterns for recognizing public domain works by classical authors (Shakespeare, Dickens, Austen, Twain, Poe, Doyle, Tolstoy, Homer) and composers (Mozart, Beethoven, Bach, Chopin, Vivaldi, Tchaikovsky)
+
+- Detects audiobooks, archival content, live performances, remixes and bootlegs
+
+- Two progress bars showing confidence levels for free vs. paid availability
+
+### Two-Sided Source Organization
+
+Sources are divided into two groups: Those that host free/public-domain content, and those that require subscription or payment.
+
+### Native Link Dispatch
+
+The link gets opened in the default browser by encoding the search parameters directly into the query.
+
+### Persistent Search History
+
+The most recent 25 unique search queries are stored in a json file called `search_history.json`, and sorted according to an MRU (Most Recently Used) algorithm.
+
+### Modern Dark UI
+
+Customized ttk themed buttons and widgets to provide a modern, accessible UI with good color contrast.
 
 ---
 
-## Technologies & Tools Used
+## Technologies
 
-- **Programming Language:** Python 3.8+
-- **GUI Framework:** Tkinter & `ttk` (clam theme)
-- **Standard Libraries:** `urllib.parse`, `webbrowser`, `json`, `re`, `pathlib`
-- **Data Persistence:** Local JSON storage (`search_history.json`)
-- **Testing:** `unittest` framework
-- **Version Control:** Git & GitHub
+- Python 3.8+
+
+- Tkinter + `ttk`
+
+Some libraries used:
+
+- `urllib.parse`
+
+- `webbrowser`
+
+- `json`
+
+- `re`
+
+- `pathlib`
+
+Testing:
+
+- `unittest`
+
+Hosting:
+
+- Git + GitHub
 
 ---
 
-## Installation & Setup
+## Installing
 
-### Prerequisites
+### Requirements
 
-- Python 3.8 or higher installed on your system.
-- Tkinter installed (bundled standard with official Python Windows/macOS installers).  
-  *On Linux (Ubuntu/Debian), install via:*
-  ```bash
-  sudo apt-get install python3-tk
+- Python 3.8 or higher
+
+- Tkinter (comes bundled with the official python Windows/macOS installers). For Linux (Ubuntu/Debian):
+
+```bash
+
+sudo apt-get install python3-tk
